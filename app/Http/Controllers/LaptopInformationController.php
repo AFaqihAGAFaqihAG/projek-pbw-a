@@ -30,6 +30,7 @@ class LaptopInformationController extends Controller
             'description' => 'nullable|string',
         ]);
 
+
         // Create new LaptopInformation instance and save to database
         $laptop = new LaptopInformation;
         $laptop->brand = $validatedData['brand'];
@@ -45,5 +46,13 @@ class LaptopInformationController extends Controller
         $laptop->description = $validatedData['description'];
         $laptop->save();
 
+        return redirect()->route('addnewdata');
+    }
+    
+    public function showLaptopInformation()
+    {
+        $laptopInformation = LaptopInformation::all();
+        dd($laptopInformation);
+        // return view('editdata', ['laptopInformation' => $laptopInformation]);
     }
 }

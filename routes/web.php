@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LaptopInformationController;
 use App\Http\Controllers\ProfileController;
+use App\Models\LaptopInformation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,11 +24,15 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/editdata', [App\Http\Controllers\LaptopInformationController::class, 'showLaptopInformation']);
+
 Route::get('/addnewdata', function () {
     return view('addnewdata');
 })->name('addnewdata');
 
 Route::post('/insertdata', 'DataController@insert')->name('insertdata');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,6 +41,8 @@ Route::get('/dashboard', function () {
 Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::post('/add_laptop_information', [App\Http\Controllers\LaptopInformationController::class, 'store'])->name('add_laptop_information');
+
+Route::get('/laptop-information', [App\Http\Controllers\LaptopInformationController::class, 'showLaptopInformation'])->name('laptop-information');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

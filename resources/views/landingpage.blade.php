@@ -1,38 +1,552 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemrograman Berbasis Web A</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link   -->
+    @vite('resources/css/style.css')
+    <link rel="stylesheet" href="css/style.css">
+
     @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     <form id="logout-form" method="POST" action="{{ route('logout') }}">
         @csrf
     </form>
+
 </head>
-    <body>
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="{{ url('/about') }}" class="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">About</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>                      
-                        @if (Auth::check())
-                            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Edit</a>
-                            <a href="{{ url('') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log out</a>
-                        @else
-                            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    </li>
-            </ul>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo">LAPTOP</a>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#services">Services & Support</a>
+        <a href="#about">About Us & Privacy Policy</a>
+        <a href="#recommended">Recommended</a>
+        <a href="#information">Information</a>
+        <a href="#review">Review</a>
+        <a href="#contact">Contact</a>
+        @if (Auth::check())
+            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Edit</a>
+            <a href="{{ url('') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log out</a>
+        @else
+            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+        @endif
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>develop your knowledge about laptops with us</h3>
+        <p>Laptop adalah perangkat komputer yang portabel dan mudah dibawa-bawa.</p>
+    </div>
+
+    <div class="image">
+        <img src="images/rocket.svg" alt="">
+    </div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> Our <span>Services & Support</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/s-1.png" alt="">
+            <h3>Information Of LAPTOP</h3>
+            <p>Bingung ingin mencari informasi? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/s-2.png" alt="">
+            <h3>Information Of Market</h3>
+            <p>Bingung ingin mencari pasar Laptop? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/s-3.png" alt="">
+            <h3>Informasi Peluncuran</h3>
+            <p>Bingung ingin melihat rilis keluaran Laptop terbaru? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/s-4.png" alt="">
+            <h3>Informasi Kenaikan Harga Laptop</h3>
+            <p>Bingung ingin melihat kenaikan harga Laptop dari yang murah kee yang mahal? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/s-5.png" alt="">
+            <h3>Informasi Pajak</h3>
+            <p>Bingung ingin melihat banyak pajak yang dikeluarkan oleh Laptop? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/s-6.png" alt="">
+            <h3>Informasi Jual Beli Laptop Bekas</h3>
+            <p>Bingung ingi mencari informasi tentang jual beli Laptop bekas? Kami solusinya.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>About Us</span> & Privacy policy </h1>
+    
+    <div class="row">
+
+        <div class="image">
+            <img src="images/about-img.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3 class="title">big projects start with big dreams</h3>
+            <p>Kebijakan Privasi [Nama Website]
+
+                Kami menghargai privasi pengunjung kami di LAPTOP. Kebijakan privasi ini menjelaskan jenis informasi pribadi yang kami terima dan kumpulkan saat Anda mengunjungi LAPTOP, serta bagaimana kami menggunakan informasi tersebut.</p>
+            <a href="#" class="btn">learn more</a>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-book"></i>
+                    <h3>Di LAPTOP, kami berkomitmen untuk memberikan informasi yang akurat, bermanfaat, dan mudah dipahami. Tim kami terdiri dari para ahli di bidang [bidang keahlian] yang berdedikasi untuk memberikan solusi terbaik untuk masalah yang dihadapi pengguna kami.</h3>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-user"></i>
+                    <h3>This website was created by 2 peoples. </h3>
+                    <p>Firdaus & Faqih </p>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>4 projects completed</h3>
+                    <p>PBO Game Katak (Firdaus) </p>
+                    <p>PBO Game Katak (Faqih) </p>
+                    <p>PBO Project UAS (Firdaus) </p>
+                    <p>PBO Project UAS (Faqih) </p>
+                </div>
             </div>
         </div>
-        </nav>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-    </body>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- recommended section starts   -->
+
+<section class="recommended" id="recommended">
+
+    <h1 class="heading"> Our <span>Recommended</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span>01</span>
+            <img src="images/L1.png" alt="">
+            <div class="content">
+                <h3>ASUS TUF Gaming F15 </h3>
+                <p>Rp 11.799.000 </p>
+                <p>Windows 10 Home </p>
+                <p>Intel Core i5-10300H Quad Core up to 4.5 GHz </p>
+                <p>512 GB PCIe NVMe M.2 SSD </p>
+                <p>8GB DDR4 SO-DIMM </p>
+                <p>359 x 256 x 24.9 mm, berat: 2.3 kg </p>
+                <p>48 WHrs </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>02</span>
+            <img src="images/L2.png" alt="">
+            <div class="content">
+                <h3>MSI GF63 Thin 11SC </h3>
+                <p>Rp 11.999.000 </p>
+                <p>Windows 10 Home </p>
+                <p>Intel Core i7-11800H Octa Core up to 4.6 GHz </p>
+                <p>512 GB PCIe NVMe SSD </p>
+                <p>8GB DDR4-3200</p>
+                <p>359 x 254 x 21.7 mm, berat: 1.86 kg </p>
+                <p>52.4 WHrs</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>03</span>
+            <img src="images/L3.png" alt="">
+            <div class="content">
+                <h3>Lenovo IdeaPad Gaming 3 </h3>
+                <p>Rp 12.199.000 </p>
+                <p>Windows 11 Home </p>
+                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
+                <p>512 GB PCIe NVMe M.2 SSD </p>
+                <p>8GB DDR4-3200 </p>
+                <p>359.6 x 251.9 x 24.2 mm, berat: 2.25 kg </p>
+                <p>45 WHrs </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>04</span>
+            <img src="images/L4.png" alt="">
+            <div class="content">
+                <h3>HP Pavilion Gaming 15 </h3>
+                <p>Rp 12.299.000 </p>
+                <p>Windows 10 Home </p>
+                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
+                <p>512 GB NVMe SSD </p>
+                <p>16GB DDR4 </p>
+                <p>360 x 257 x 23.5 mm, berat: 1.98 kg </p>
+                <p>52.5 WHrs </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>05</span>
+            <img src="images/L5.png" alt="">
+            <div class="content">
+                <h3>MSI Bravo 15 B5DD </h3>
+                <p>Rp 13.999.000 </p>
+                <p>Windows 11 Home </p>
+                <p>AMD Ryzen 7 5800H Quad Core up to 4.4 GHz </p>
+                <p>512 GB SSD </p>
+                <p>8GB DDR4 </p>
+                <p>359 x 259 x 24.9 mm, berat: 2.35 kg </p>
+                <p>51 WHrs </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>06</span>
+            <img src="images/L6.png" alt="">
+            <div class="content">
+                <h3>Dell Gaming G15 </h3>
+                <p>Rp 16.500.000 </p>
+                <p>Windows 10 Home </p>
+                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
+                <p>256 GB NVMe PCIe SSD </p>
+                <p>8GB DDR4 </p>
+                <p>357.2 x 272.1 x 24.9 mm, berat: 2.45 kg </p>
+                <p>56 WHrs </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- recommended section ends -->
+
+<!-- information section starts  -->
+
+<section class="information" id="information">
+
+    <h1 class="heading"> Our <span>Information</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>basic class</h3>
+            <img src="images/Laptop 3.png" alt="">
+            <div class="price"> <span>$</span>369.98<span></span> </div>
+            <ul>
+                <li>ASUS Vivobook 14 Laptop</li>
+                <li>Brand	ASUS</li>
+                <li>Screen Size	14 Inches</li>
+                <li>Color	Gray</li>
+                <li>Hard Disk Size	512 GB</li>
+                <li>CPU Model	Core I3 1115G4</li>
+                <li>Ram Memory Installed Size	12 GB</li>
+            </ul>
+            <a href="#" class="btn">choose </a>
+        </div>
+
+        <div class="box">
+            <h3>standard class</h3>
+            <img src="images/laptop 2.png" alt="">
+            <div class="price"> <span>$</span>810.15<span></span> </div>
+            <ul>
+                <li>Acer Nitro 5 AN515-57-79TD Gaming Laptop</li>
+                <li>Brand	Acer</li>
+                <li>Series	AN515-57-79TD</li>
+                <li>Screen Size	15.6 Inches</li>
+                <li>Color	Black</li>
+                <li>Hard Disk Size	512</li>
+                <li>Ram Memory Installed Size	8 GB</li>
+            </ul>
+            <a href="#" class="btn">choose </a>
+        </div>
+
+        <div class="box">
+            <h3>premium class</h3>
+            <img src="images/Laptop 4.png" alt="">
+            <div class="price"> <span>$</span>2,668.96<span></span> </div>
+            <ul>
+                <li>Acer Predator Triton 500 SE Gaming/Creator Laptop</li>
+                <li>Brand	Acer</li>
+                <li>Screen Size	16 Inches</li>
+                <li>Color	Gray</li>
+                <li>CPU Model	Core i9</li>
+                <li>Ram Memory Installed Size	32 GB</li>
+            </ul>
+            <a href="#" class="btn">choose </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- information section ends -->
+
+<!-- reivew section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> Client's <span>Review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="user">
+                <img src="images/Ilhaam.jpeg" alt="">
+                <div class="info">
+                    <h3>Ilhaam Ghiffary</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Luar biasa! Tampilannya sangat menarik dan mudah dinavigasi.
+                Terima kasih atas pengalaman penggunaan website yang luar biasa ini.
+                Saya sangat terkesan dengan desain dan fungsionalitas website ini.
+                Website ini sangat membantu dan informatif, terima kasih banyak!
+                Saya sangat suka dengan cara website ini mempresentasikan informasi dengan jelas dan ringkas.</p>
+            <p>Desain website ini sangat estetis dan modern, sangat menyenangkan untuk dilihat.
+                Website ini sangat mudah digunakan, bahkan bagi pengguna yang kurang terampil dalam menggunakan teknologi.
+                Terima kasih atas usaha yang telah dilakukan dalam menciptakan website yang luar biasa ini.
+                Saya sangat terkesan dengan kualitas konten dan fitur-fitur website ini.
+                Website ini sangat profesional dan memberikan pengalaman penggunaan yang menyenangkan.</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/Aulia.jpeg" alt="">
+                <div class="info">
+                    <h3>Aulia Muzhaffar</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Luar biasa! Website ini benar-benar menakjubkan!
+                Saya sangat terkesan dengan tampilan dan pengalaman pengguna di website ini.
+                Bravo! Desain dan konten website ini sangat profesional.
+                Website ini sangat mudah dinavigasi dan informasinya sangat informatif.
+                Terima kasih atas pengalaman yang luar biasa di website ini.</p>
+            <p>Karya yang luar biasa! Website ini benar-benar mengesankan.
+                Saya sangat terkesan dengan upaya dan perhatian yang diberikan pada setiap detail di website ini.
+                Tampilan website ini sangat menarik dan modern.
+                Saya suka cara website ini menyampaikan informasi dengan jelas dan mudah dipahami.
+                Website ini memberikan pengalaman pengguna yang luar biasa, terima kasih sudah membuatnya!</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/Riyad.jpeg" alt="">
+                <div class="info">
+                    <h3>Riyadhus shadiqin</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Luar biasa! Desain web ini sangat menakjubkan.
+                Terima kasih sudah membuat pengalaman pengguna yang luar biasa di situs ini.
+                Saya sangat terkesan dengan tampilan yang modern dan profesional dari situs ini.
+                Sangat mudah digunakan dan navigasi di situs ini terasa sangat lancar.
+                Konten yang disajikan sangat informatif dan bermanfaat.</p>
+            <p>Saya menyukai desain responsif yang memungkinkan situs ini dapat diakses dari berbagai perangkat.
+                Bravo! Situs ini memang dibuat dengan kualitas yang tinggi.
+                Terima kasih sudah menyediakan fitur-fitur yang berguna dan mempermudah pengguna.
+                Saya sangat menghargai usaha yang telah dilakukan untuk membuat situs ini.
+                Situs ini benar-benar membuat saya ingin kembali mengunjunginya lagi dan lagi.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- reivew section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"> <span>Contact</span> Us </h1>
+
+    <div class="icons-container">
+        <div class="icons">
+            <i class="fas fa-phone"></i>
+            <h3>our phone & whatsapp </h3>
+            <p>+62 852-6927-0159 (Firdaus) </p>
+            <p>+62 895-3362-82090 (faqih) </p>
+        </div>
+        <div class="icons">
+            <i class="fas fa-envelope"></i>
+            <h3>our email</h3>
+            <p>mhdfir212@gmail.com</p>
+            <p>ahmadfaqih@gmail.com</p>
+        </div>
+        <div class="icons">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>our location</h3>
+            <p>Banda Aceh, Aceh, Indonesia - 23111</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.985585608237!2d95.36342522277221!3d5.569147783047381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304037b98ba13e41%3A0x93d7ebf4986961a9!2sFaculty%20of%20Mathematics%20and%20Sciences%20Universitas%20Syiah%20Kuala!5e0!3m2!1sen!2sin!4v1680630429431!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <form action="">
+            <input type="text" placeholder="Name" class="box">
+            <input type="email" placeholder="Email" class="box">
+            <input type="number" placeholder="Number" class="box">
+            <textarea name="" placeholder="Message" class="box" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+        
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Lhokseumawe </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Banda Aceh </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Aceh Besar </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Bireuen </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Lhoksukon </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#home"> <i class="fas fa-arrow-right"></i> Home </a>
+            <a href="#services"> <i class="fas fa-arrow-right"></i> Services & Support </a>
+            <a href="#about"> <i class="fas fa-arrow-right"></i> About Us & Privacy Policy </a>
+            <a href="#recommended"> <i class="fas fa-arrow-right"></i> Recommended </a>
+            <a href="#information"> <i class="fas fa-arrow-right"></i> Information </a>
+            <a href="#review"> <i class="fas fa-arrow-right"></i> Review </a>
+            <a href="#contact"> <i class="fas fa-arrow-right"></i> Contact </a>
+        </div>
+
+        <div class="box">
+            <h3>Our Services & Support</h3>
+            <a href="#"> <i class="fas fa-check"></i> web design </a>
+            <a href="#"> <i class="fas fa-check"></i> digital marketing </a>
+            <a href="#"> <i class="fas fa-check"></i> email marketing </a>
+            <a href="#"> <i class="fas fa-check"></i> content marketing </a>
+            <a href="#"> <i class="fas fa-check"></i> seo marketing </a>
+        </div>
+
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#contact"> <i class="fab fa-whatsapp"></i> whatsapp </a>
+            <a href="#"> <i class="fab fa-github"></i> github </a>
+        </div>
+
+    </div>
+
+    <div class="credit">Created By <span>Firdaus & Faqih</span> | All Rights Reserved</div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
 </html>
