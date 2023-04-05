@@ -48,11 +48,6 @@ class LaptopInformationController extends Controller
 
         return redirect()->route('addnewdata');
     }
+
     
-    public function showLaptopInformation()
-    {
-        $laptopInformation = LaptopInformation::all();
-        dd($laptopInformation);
-        // return view('editdata', ['laptopInformation' => $laptopInformation]);
-    }
 }

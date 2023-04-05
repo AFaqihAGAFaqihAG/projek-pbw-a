@@ -42,8 +42,6 @@ Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController
 
 Route::post('/add_laptop_information', [App\Http\Controllers\LaptopInformationController::class, 'store'])->name('add_laptop_information');
 
-Route::get('/laptop-information', [App\Http\Controllers\LaptopInformationController::class, 'showLaptopInformation'])->name('laptop-information');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
