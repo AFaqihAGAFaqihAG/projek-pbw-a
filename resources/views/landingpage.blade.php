@@ -37,11 +37,11 @@
         <a href="#review">Review</a>
         <a href="#contact">Contact</a>
         @if (Auth::check())
-            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Edit</a>
-            <a href="{{ url('') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log out</a>
+            <a href="{{ url('/editdata') }}">Edit</a>
+            <a href="{{ url('') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
         @else
-            <a href="{{ url('/editdata') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+            <a href="{{ url('/editdata') }}">Log in</a>
+            <a href="{{ route('register') }}">Register</a>
         @endif
     </nav>
 
@@ -347,7 +347,7 @@
 
         <div class="box">
             <div class="user">
-                <img src="images/Ilhaam.jpeg" alt="">
+                <img src="images/Ilhaam.jpg" alt="">
                 <div class="info">
                     <h3>Ilhaam Ghiffary</h3>
                     <div class="stars">
@@ -374,7 +374,7 @@
 
         <div class="box">
             <div class="user">
-                <img src="images/Aulia.jpeg" alt="">
+                <img src="images/Aulia.jpg" alt="">
                 <div class="info">
                     <h3>Aulia Muzhaffar</h3>
                     <div class="stars">
@@ -401,7 +401,7 @@
 
         <div class="box">
             <div class="user">
-                <img src="images/Riyad.jpeg" alt="">
+                <img src="images/Riyad.jpg" alt="">
                 <div class="info">
                     <h3>Riyadhus shadiqin</h3>
                     <div class="stars">
@@ -504,11 +504,12 @@
 
         <div class="box">
             <h3>Our Services & Support</h3>
-            <a href="#"> <i class="fas fa-check"></i> web design </a>
-            <a href="#"> <i class="fas fa-check"></i> digital marketing </a>
-            <a href="#"> <i class="fas fa-check"></i> email marketing </a>
-            <a href="#"> <i class="fas fa-check"></i> content marketing </a>
-            <a href="#"> <i class="fas fa-check"></i> seo marketing </a>
+            <a href="#"> <i class="fas fa-check"></i> Information of Laptop </a>
+            <a href="#"> <i class="fas fa-check"></i> Information of Marketing </a>
+            <a href="#"> <i class="fas fa-check"></i> Informasi Peluncuren </a>
+            <a href="#"> <i class="fas fa-check"></i> Informasi Kenaikan Harga Laptop</a>
+            <a href="#"> <i class="fas fa-check"></i> Informasi Pajak </a>
+            <a href="#"> <i class="fas fa-check"></i> Informasi Jual Beli Laptop Bekas </a>
         </div>
 
         <div class="box">
