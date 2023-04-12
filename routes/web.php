@@ -40,6 +40,7 @@ Route::post('/insertdata', 'DataController@insert')->name('insertdata');
 Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::post('/add_laptop_information', [App\Http\Controllers\LaptopInformationController::class, 'store'])->name('add_laptop_information');
+    
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
