@@ -180,96 +180,29 @@
 
     <div class="box-container">
 
-        <div class="box">
-            <span>01</span>
-            <img src="images/L1.png" alt="">
-            <div class="content">
-                <h3>ASUS TUF Gaming F15 </h3>
-                <p>Rp 11.799.000 </p>
-                <p>Windows 10 Home </p>
-                <p>Intel Core i5-10300H Quad Core up to 4.5 GHz </p>
-                <p>512 GB PCIe NVMe M.2 SSD </p>
-                <p>8GB DDR4 SO-DIMM </p>
-                <p>359 x 256 x 24.9 mm, berat: 2.3 kg </p>
-                <p>48 WHrs </p>
-            </div>
-        </div>
+        @php
+            $counter = 1;
+        @endphp
 
-        <div class="box">
-            <span>02</span>
-            <img src="images/L2.png" alt="">
-            <div class="content">
-                <h3>MSI GF63 Thin 11SC </h3>
-                <p>Rp 11.999.000 </p>
-                <p>Windows 10 Home </p>
-                <p>Intel Core i7-11800H Octa Core up to 4.6 GHz </p>
-                <p>512 GB PCIe NVMe SSD </p>
-                <p>8GB DDR4-3200</p>
-                <p>359 x 254 x 21.7 mm, berat: 1.86 kg </p>
-                <p>52.4 WHrs</p>
+        @foreach($laptopList as $item)
+            <div class="box">
+                <span>{{ str_pad($counter, 2, '0', STR_PAD_LEFT) }}</span>
+                <img src="{{ asset('images/' . $item->image_path) }}" alt="">
+                <div class="content">
+                    <h3 style="text-align: center">{{ $item->model }}</h3>
+                    <p style="text-align: center">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
+                    <p style="text-align: center">{{ $item->processor }}</p>
+                    <p style="text-align: center">{{ $item->memory }}</p>
+                    <p style="text-align: center">{{ $item->storage }}</p>
+                    <p style="text-align: center">{{ $item->graphics }}</p>
+                    <p style="text-align: center">{{ number_format($item->weight/1000, 3, ',', '.') }} kg</p>
+                </div>
             </div>
-        </div>
-
-        <div class="box">
-            <span>03</span>
-            <img src="images/L3.png" alt="">
-            <div class="content">
-                <h3>Lenovo IdeaPad Gaming 3 </h3>
-                <p>Rp 12.199.000 </p>
-                <p>Windows 11 Home </p>
-                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
-                <p>512 GB PCIe NVMe M.2 SSD </p>
-                <p>8GB DDR4-3200 </p>
-                <p>359.6 x 251.9 x 24.2 mm, berat: 2.25 kg </p>
-                <p>45 WHrs </p>
-            </div>
-        </div>
-
-        <div class="box">
-            <span>04</span>
-            <img src="images/L4.png" alt="">
-            <div class="content">
-                <h3>HP Pavilion Gaming 15 </h3>
-                <p>Rp 12.299.000 </p>
-                <p>Windows 10 Home </p>
-                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
-                <p>512 GB NVMe SSD </p>
-                <p>16GB DDR4 </p>
-                <p>360 x 257 x 23.5 mm, berat: 1.98 kg </p>
-                <p>52.5 WHrs </p>
-            </div>
-        </div>
-
-        <div class="box">
-            <span>05</span>
-            <img src="images/L5.png" alt="">
-            <div class="content">
-                <h3>MSI Bravo 15 B5DD </h3>
-                <p>Rp 13.999.000 </p>
-                <p>Windows 11 Home </p>
-                <p>AMD Ryzen 7 5800H Quad Core up to 4.4 GHz </p>
-                <p>512 GB SSD </p>
-                <p>8GB DDR4 </p>
-                <p>359 x 259 x 24.9 mm, berat: 2.35 kg </p>
-                <p>51 WHrs </p>
-            </div>
-        </div>
-
-        <div class="box">
-            <span>06</span>
-            <img src="images/L6.png" alt="">
-            <div class="content">
-                <h3>Dell Gaming G15 </h3>
-                <p>Rp 16.500.000 </p>
-                <p>Windows 10 Home </p>
-                <p>AMD Ryzen 5 5600H Hexa Core up to 4.2 GHz </p>
-                <p>256 GB NVMe PCIe SSD </p>
-                <p>8GB DDR4 </p>
-                <p>357.2 x 272.1 x 24.9 mm, berat: 2.45 kg </p>
-                <p>56 WHrs </p>
-            </div>
-        </div>
-
+            @php
+                $counter++;
+            @endphp
+        @endforeach
+        
     </div>
 
 </section>

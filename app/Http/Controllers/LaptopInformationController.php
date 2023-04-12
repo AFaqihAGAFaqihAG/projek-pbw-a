@@ -49,5 +49,9 @@ class LaptopInformationController extends Controller
         return redirect()->route('addnewdata');
     }
 
+    public function index() {
+        $laptopList = LaptopInformation::all();
+        return view('LandingPage', compact(['laptopList']));
+    }
     
 }

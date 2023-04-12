@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+
+
     /**
      * Run the migrations.
      */
@@ -24,6 +27,7 @@ return new class extends Migration
             $table->string('operating_system');
             $table->integer('weight');
             $table->text('description')->nullable();
+            $table->text('image_path')->nullable();
             $table->timestamps();
         });
     }
