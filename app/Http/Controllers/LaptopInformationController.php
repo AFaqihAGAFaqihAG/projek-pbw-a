@@ -17,14 +17,14 @@ class LaptopInformationController extends Controller
     {
         // Validate input data
         $validatedData = $request->validate([
-            'brand' => 'required|string|max:20',
+            'brand' => 'required|string|max:30',
             'model' => 'required|string|max:100',
             'price' => 'required|integer',
             'processor' => 'required|string|max:100',
-            'memory' => 'required|string|max:50',
+            'ram' => 'required|string|max:50',
             'storage' => 'required|string|max:50',
-            'display_size' => 'required|string|max:20',
-            'graphics' => 'required|string|max:50',
+            'display_size' => 'required|string|max:50',
+            'port' => 'required|string|max:50',
             'operating_system' => 'required|string|max:50',
             'weight' => 'required|integer',
             'description' => 'nullable|string',
@@ -37,10 +37,10 @@ class LaptopInformationController extends Controller
         $laptop->model = $validatedData['model'];
         $laptop->price = $validatedData['price'];
         $laptop->processor = $validatedData['processor'];
-        $laptop->memory = $validatedData['memory'];
+        $laptop->ram = $validatedData['ram'];
         $laptop->storage = $validatedData['storage'];
         $laptop->display_size = $validatedData['display_size'];
-        $laptop->graphics = $validatedData['graphics'];
+        $laptop->port = $validatedData['port'];
         $laptop->operating_system = $validatedData['operating_system'];
         $laptop->weight = $validatedData['weight'];
         $laptop->description = $validatedData['description'];
@@ -53,5 +53,5 @@ class LaptopInformationController extends Controller
         $laptopList = LaptopInformation::all();
         return view('LandingPage', compact(['laptopList']));
     }
-    
+
 }
