@@ -21,7 +21,7 @@
 
 </head>
 <body>
-    
+
 <!-- header section starts  -->
 
 <header class="header">
@@ -132,7 +132,7 @@
 <section class="about" id="about">
 
     <h1 class="heading"> <span>About Us</span> & Privacy policy </h1>
-    
+
     <div class="row">
 
         <div class="image">
@@ -202,7 +202,7 @@
                 $counter++;
             @endphp
         @endforeach
-        
+
     </div>
 
 </section>
@@ -414,7 +414,7 @@
 <section class="footer">
 
     <div class="box-container">
-        
+
         <div class="box">
             <h3>our branches</h3>
             <a href="#"> <i class="fas fa-map-marker-alt"></i> Lhokseumawe </a>
