@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LaptopInformation;
+use Illuminate\Support\Facades\DB;
 
 class LaptopInformationController extends Controller
 {
@@ -15,43 +16,43 @@ class LaptopInformationController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate input data
-        $validatedData = $request->validate([
-            'brand' => 'required|string|max:30',
-            'model' => 'required|string|max:100',
-            'price' => 'required|integer',
-            'processor' => 'required|string|max:100',
-            'ram' => 'required|string|max:50',
-            'storage' => 'required|string|max:50',
-            'display_size' => 'required|string|max:50',
-            'port' => 'required|string|max:50',
-            'operating_system' => 'required|string|max:50',
-            'weight' => 'required|integer',
-            'description' => 'nullable|string',
-        ]);
 
+        $file = $request->file('image_path') ;
+        $fileName = $file->getClientOriginalName() ;
+        $destinationPath = public_path().'/images' ;
+        $file->move($destinationPath,$fileName);
 
-        // Create new LaptopInformation instance and save to database
-        $laptop = new LaptopInformation;
-        $laptop->brand = $validatedData['brand'];
-        $laptop->model = $validatedData['model'];
-        $laptop->price = $validatedData['price'];
-        $laptop->processor = $validatedData['processor'];
-        $laptop->ram = $validatedData['ram'];
-        $laptop->storage = $validatedData['storage'];
-        $laptop->display_size = $validatedData['display_size'];
-        $laptop->port = $validatedData['port'];
-        $laptop->operating_system = $validatedData['operating_system'];
-        $laptop->weight = $validatedData['weight'];
-        $laptop->description = $validatedData['description'];
-        $laptop->save();
+        $data = $request->except('_token');
+        $data['image_path'] = $fileName;
+        LaptopInformation::create($data);
 
-        return redirect()->route('addnewdata');
+        return redirect()->back();
+
+        // dd($request->all());
     }
 
-    public function index() {
+    public function details(Request $request, $item)
+    {
+        // Assuming you have a LaptopInformation model representing your laptops
+        $laptop = LaptopInformation::where('id', $item)->first();
+        
+        if (!$laptop) {
+            // Handle the case where the laptop is not found
+            return abort(404);
+        }
+    
+        // Return the view with the laptop details
+        return view('laptopdetail', ['laptop' => $laptop]);
+    }    
+
+    public function indexLandingPage() {
         $laptopList = LaptopInformation::all();
-        return view('LandingPage', compact(['laptopList']));
+        return view('landingpage', compact(['laptopList']));
+    }
+
+    public function indexEditData() {
+        $laptopList = LaptopInformation::all();
+        return view('editdata', compact(['laptopList']));
     }
 
 }

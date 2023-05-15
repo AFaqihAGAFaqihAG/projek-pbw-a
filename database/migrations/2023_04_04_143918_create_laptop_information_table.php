@@ -6,24 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
-
-
     /**
      * Run the migrations.
+     * Note :
+     * price is in integer value, without , or .
+     * eg : 10.000.000 is invalid, use 10000000
+     * weight is integer converted to gram
+     * weight = 1020 => 1020 gram = 1.02 kg
      */
     public function up(): void
     {
         Schema::create('laptop_information', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string('brand');
             $table->string('model');
             $table->integer('price');
             $table->string('processor');
-            $table->string('memory');
+            $table->string('ram');
             $table->string('storage');
             $table->string('display_size');
-            $table->string('graphics');
+            $table->string('port');
             $table->string('operating_system');
             $table->integer('weight');
             $table->text('description')->nullable();

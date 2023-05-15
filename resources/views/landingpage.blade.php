@@ -37,10 +37,9 @@
         <a href="#review">Review</a>
         <a href="#contact">Contact</a>
         @if (Auth::check())
-            <a href="{{ url('/editdata') }}">Edit</a>
+            <a href="{{ url('editdata') }}">Edit</a>
             <a href="{{ url('') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
         @else
-            <a href="{{ url('/editdata') }}">Log in</a>
             <a href="{{ route('register') }}">Register</a>
         @endif
     </nav>
@@ -185,19 +184,21 @@
         @endphp
 
         @foreach($laptopList as $item)
-            <div class="box">
-                <span>{{ str_pad($counter, 2, '0', STR_PAD_LEFT) }}</span>
-                <img src="{{ asset('images/' . $item->image_path) }}" alt="">
-                <div class="content">
-                    <h3 style="text-align: center">{{ $item->model }}</h3>
-                    <p style="text-align: center">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
-                    <p style="text-align: center">{{ $item->processor }}</p>
-                    <p style="text-align: center">{{ $item->memory }}</p>
-                    <p style="text-align: center">{{ $item->storage }}</p>
-                    <p style="text-align: center">{{ $item->graphics }}</p>
-                    <p style="text-align: center">{{ number_format($item->weight/1000, 3, ',', '.') }} kg</p>
+        <a href="{{ route('laptop.details', ['item' => $item]) }}">
+                <div class="box">
+                    <span>{{ str_pad($counter, 2, '0', STR_PAD_LEFT) }}</span>
+                    <img src="{{ asset('images/' . $item->image_path) }}" alt="">
+                    <div class="content">
+                        <h3 style="text-align: center">{{ $item->model }}</h3>
+                        <p style="text-align: center">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
+                        <p style="text-align: center">{{ $item->processo }}</p>
+                        <p style="text-align: center">{{ $item->ram }}</p>
+                        <p style="text-align: center">{{ $item->storage }}</p>
+                        <p style="text-align: center">{{ $item->port }}</p>
+                        <p style="text-align: center">{{ number_format($item->weight/1000, 3, ',', '.') }} kg</p>
+                    </div>
                 </div>
-            </div>
+            </a>
             @php
                 $counter++;
             @endphp
