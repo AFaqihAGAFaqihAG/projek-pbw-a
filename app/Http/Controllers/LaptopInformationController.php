@@ -26,7 +26,7 @@ class LaptopInformationController extends Controller
         $data['image_path'] = $fileName;
         LaptopInformation::create($data);
 
-        return redirect()->back();
+        return view('editdata');
 
         // dd($request->all());
     }
